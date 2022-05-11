@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { BiCommentDots } from "react-icons/bi";
 import ReviewCard from "./ReviewCard";
-import LoadingIcon from "./LoadingIcon";
+import LoadingIcon from "../LoadingIcon";
 
 type Props = {
   url: string;

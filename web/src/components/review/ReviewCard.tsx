@@ -1,10 +1,10 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Button, Rating, Avatar } from "@mui/material";
-import MyAvatar from "./MyAvatar";
-import { useAuthToken } from "../hooks/AuthTokenContext";
-import { useNotificationContext } from "../hooks/NotificationContext";
-import { useBackdropContext } from "../hooks/BackdropContext";
+import MyAvatar from "../profile/MyAvatar";
+import { useAuthToken } from "../../hooks/AuthTokenContext";
+import { useNotificationContext } from "../../hooks/NotificationContext";
+import { useBackdropContext } from "../../hooks/BackdropContext";
 
 type Props = {
   review: IReview;

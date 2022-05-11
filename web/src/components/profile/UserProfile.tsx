@@ -1,4 +1,4 @@
-import "./css/profile.css";
+import styles from "./UserProfile.module.css";
 import { useState } from "react";
 import {
   Divider,
@@ -13,9 +13,9 @@ import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
 import EmailIcon from "@mui/icons-material/Email";
 import EditIcon from "@mui/icons-material/Edit";
 import PublicProfile from "./PublicProfile";
-import GetUserById from "../apis/GetUserById";
+import GetUserById from "../../apis/GetUserById";
 import EditProfile from "./EditProfile";
-import LoadingIcon from "./LoadingIcon";
+import LoadingIcon from "../LoadingIcon";
 import ProfileCard from "./ProfileCard";
 
 type Props = {
@@ -36,9 +36,9 @@ const UserProfile = ({ userId, isCurrentUser }: Props): JSX.Element => {
         <>
           <div
             style={{ width: "90%" }}
-            className=" mx-auto w-full flex flex-col md:flex-row mt-10"
+            className="mx-auto w-full flex flex-col md:flex-row mt-10"
           >
-            <div className="mx-auto profile-left flex flex-col">
+            <div className={`${styles["profile-left"]} mx-auto flex flex-col`}>
               <ProfileCard user={user} />
               <Box className="mt-10 ml-4" sx={{ width: 400 }}>
                 <MenuList>
@@ -94,7 +94,7 @@ const UserProfile = ({ userId, isCurrentUser }: Props): JSX.Element => {
                 </MenuList>
               </Box>
             </div>
-            <div className="ma-auto profile-right">
+            <div className={`${styles["profile-right"]} ma-auto`}>
               {isLoading ? (
                 <LoadingIcon />
               ) : isCurrentUser && showEdit ? (

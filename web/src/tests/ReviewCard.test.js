@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ReviewCard from "../components/ReviewCard";
+import ReviewCard from "../components/review/ReviewCard";
 import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 

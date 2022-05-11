@@ -1,5 +1,5 @@
-import RecipeRowList from "../components/RecipeRowList";
-import ReviewList from "../components/ReviewList";
+import RecipeRowList from "../recipe/RecipeRowList";
+import ReviewList from "../review/ReviewList";
 
 type Props = {
   showRecipe: boolean;

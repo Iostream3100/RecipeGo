@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { Box, Divider, IconButton, Typography } from "@mui/material";
 import { BiFoodMenu } from "react-icons/bi";
 import { BsPeople, BsThreeDots } from "react-icons/bs";
-import RecipeList from "../components/RecipeList";
+import RecipeList from "../components/recipe/RecipeList";
 import LoadingIcon from "../components/LoadingIcon";
 
 const Category = (): JSX.Element => {
@@ -36,11 +36,11 @@ const Category = (): JSX.Element => {
   useEffect(() => {
     if (recipes && recipes.length) {
       setTotalRecipes(recipes.length);
-      const newTotalCommnets = recipes.reduce(
+      const newTotalComments = recipes.reduce(
         (preValue, recipe) => preValue + recipe.reviews.length,
         0
       );
-      setTotalComments(newTotalCommnets);
+      setTotalComments(newTotalComments);
     }
   }, [recipes]);
 

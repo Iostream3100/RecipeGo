@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import UserProfile from "../components/UserProfile";
+import UserProfile from "../components/profile/UserProfile";
 import LoadingIcon from "../components/LoadingIcon";
 
 const Profile = (): JSX.Element => {

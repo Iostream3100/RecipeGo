@@ -4,9 +4,9 @@ import { useFormik } from "formik";
 import { Avatar, Button, TextField, Box } from "@mui/material";
 import { HiUpload } from "react-icons/hi";
 import * as yup from "yup";
-import { useAuthToken } from "../hooks/AuthTokenContext";
-import { useNotificationContext } from "../hooks/NotificationContext";
-import { useBackdropContext } from "../hooks/BackdropContext";
+import { useAuthToken } from "../../hooks/AuthTokenContext";
+import { useNotificationContext } from "../../hooks/NotificationContext";
+import { useBackdropContext } from "../../hooks/BackdropContext";
 
 type Props = { userName: string; userBio: string };
 
@@ -58,9 +58,11 @@ const EditProfile = ({ userName, userBio }: Props): JSX.Element => {
     },
   });
   const [image, setImage] = useState<any>(null);
+
   function onImageChange(e) {
     setImage(e.target.files[0]);
   }
+
   return (
     <div
       style={{

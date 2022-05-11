@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import "./css/myCarousel.css";
+import styles from "./MyCarousel.module.css";
+
 const Thumbnail = (props) => {
   return (
     <div
@@ -54,8 +55,10 @@ function MyCarousel(props) {
 
   return (
     <>
-      <div className="responsive-topcard flex md:flex-row flex-col w-full top-container">
-        <div className="box ">
+      <div
+        className={`${styles["responsive-top-card"]} flex md:flex-row flex-col w-full ${styles["top-container"]}`}
+      >
+        <div className={styles.box}>
           {video ? (
             <iframe
               title="recipe-video"
@@ -64,7 +67,7 @@ function MyCarousel(props) {
             />
           ) : (
             <div
-              className="responsive-iframe"
+              className={styles["responsive-iframe"]}
               style={{
                 backgroundColor: "#ffffff",
                 backgroundSize: "cover",
@@ -76,7 +79,7 @@ function MyCarousel(props) {
           )}
         </div>
         <div
-          className="note flex flex-col mx-auto "
+          className={`${styles.note} flex flex-col mx-auto`}
           style={{
             borderColor: "#D9D9D9",
             backgroundColor: "#F5F1E7",

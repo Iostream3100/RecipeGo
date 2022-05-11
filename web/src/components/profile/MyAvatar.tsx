@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import GetAvatarByUserId from "../apis/GetAvatarByUserId";
+import GetAvatarByUserId from "../../apis/GetAvatarByUserId";
 
 type Props = {
   userId: string;

@@ -1,4 +1,4 @@
-import "./css/recipeCard.css";
+import "../css/recipeCard.css";
 import { Link } from "react-router-dom";
 import { Rating } from "@mui/material";
 import { BsThreeDots } from "react-icons/bs";

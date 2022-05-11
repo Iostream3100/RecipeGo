@@ -2,8 +2,8 @@ import { BiFoodMenu } from "react-icons/bi";
 import { BsPeople } from "react-icons/bs";
 import { IoBookmarksOutline } from "react-icons/io5";
 import { Avatar, Box, Typography } from "@mui/material";
-import GetAvatarByUserId from "../apis/GetAvatarByUserId";
-import LoadingIcon from "./LoadingIcon";
+import GetAvatarByUserId from "../../apis/GetAvatarByUserId";
+import LoadingIcon from "../LoadingIcon";
 
 type Props = { user: IUser };
 

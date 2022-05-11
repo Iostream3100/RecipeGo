@@ -1,6 +1,6 @@
 import RecipeList from "./RecipeList";
-import GetRecipesByURL from "../apis/GetRecipesByUrl";
-import LoadingIcon from "./LoadingIcon";
+import GetRecipesByURL from "../../apis/GetRecipesByUrl";
+import LoadingIcon from "../LoadingIcon";
 
 type Props = { url: string };
 

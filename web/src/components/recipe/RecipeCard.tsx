@@ -1,4 +1,4 @@
-import "./css/recipeCard.css";
+import "../css/recipeCard.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, Rating } from "@mui/material";
 

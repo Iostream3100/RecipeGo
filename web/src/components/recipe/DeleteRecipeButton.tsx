@@ -10,9 +10,9 @@ import {
   DialogActions,
   Dialog,
 } from "@mui/material";
-import { useAuthToken } from "../hooks/AuthTokenContext";
-import { useNotificationContext } from "../hooks/NotificationContext";
-import { useBackdropContext } from "../hooks/BackdropContext";
+import { useAuthToken } from "../../hooks/AuthTokenContext";
+import { useNotificationContext } from "../../hooks/NotificationContext";
+import { useBackdropContext } from "../../hooks/BackdropContext";
 
 type Props = { recipeId: string };
 

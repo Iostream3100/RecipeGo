@@ -1,4 +1,4 @@
-import "./css/RecipeDetail.css";
+import styles from "./RecipeDetail.module.css";
 import axios from "axios";
 import { useRef } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -13,13 +13,13 @@ import {
   TwitterIcon,
   FacebookIcon,
 } from "react-share";
-import MyAvatar from "../components/MyAvatar";
-import ReviewList from "../components/ReviewList";
-import NewComment from "../components/NewComment";
-import MyCarousel from "../components/MyCarousel";
+import MyAvatar from "../components/profile/MyAvatar";
+import ReviewList from "../components/review/ReviewList";
+import NewComment from "../components/review/NewComment";
+import MyCarousel from "../components/recipe/MyCarousel";
 import LoadingIcon from "../components/LoadingIcon";
-import RecipeNote from "../components/RecipeNote";
-import DeleteRecipeButton from "../components/DeleteRecipeButton";
+import RecipeNote from "../components/recipe/RecipeNote";
+import DeleteRecipeButton from "../components/recipe/DeleteRecipeButton";
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
@@ -53,7 +53,7 @@ const RecipeDetail = (): JSX.Element => {
         <LoadingIcon />
       ) : (
         <div className="container max-w-4xl mx-auto px-4">
-          <div className="share relative flex gap-3 ">
+          <div className={`${styles.share} relative flex gap-3`}>
             <FacebookShareButton url={url} quote={recipe?.title}>
               <FacebookIcon size={32} round />
             </FacebookShareButton>

@@ -4,11 +4,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import * as yup from "yup";
 import { FiLogIn } from "react-icons/fi";
 import { Rating, TextField, Button } from "@mui/material";
-import { useNotificationContext } from "../hooks/NotificationContext";
-import { useBackdropContext } from "../hooks/BackdropContext";
-import { useAuthToken } from "../hooks/AuthTokenContext";
-import LoadingIcon from "./LoadingIcon";
-import LoginButton from "./LoginButton";
+import { useNotificationContext } from "../../hooks/NotificationContext";
+import { useBackdropContext } from "../../hooks/BackdropContext";
+import { useAuthToken } from "../../hooks/AuthTokenContext";
+import LoadingIcon from "../LoadingIcon";
+import LoginButton from "../LoginButton";
 
 type Props = { recipeId: string };
 

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import ProfileCard from "../components/ProfileCard";
+import ProfileCard from "../components/profile/ProfileCard";
 import "@testing-library/jest-dom";
 
 jest.mock("react-query", () => ({
