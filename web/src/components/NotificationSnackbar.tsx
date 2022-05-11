@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Snackbar } from "@mui/material";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import { useNotificationContext } from "../hooks/NotificationContext";
+import ReactDom from "react-dom";
+import {Snackbar} from "@mui/material";
+import MuiAlert, {AlertProps} from "@mui/material/Alert";
+import {useNotificationContext} from "../hooks/NotificationContext";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -10,8 +11,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const Notificationsnackbar = (): JSX.Element => {
-  const { snackbarOpen, setSnackbarOpen, snackbarMessage } =
+const NotificationSnackbarComponent = (): JSX.Element => {
+  const {snackbarOpen, setSnackbarOpen, snackbarMessage} =
     useNotificationContext();
 
   const handleClose = (
@@ -33,4 +34,16 @@ const Notificationsnackbar = (): JSX.Element => {
   );
 };
 
-export default Notificationsnackbar;
+const NotificationSnackbar = (): JSX.Element => {
+  return (
+    <>
+      {ReactDom.createPortal(
+        <NotificationSnackbarComponent/>,
+        document.getElementById("notification-root")!
+      )}
+    </>
+  );
+}
+
+
+export default NotificationSnackbar;
