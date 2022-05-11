@@ -1,32 +1,32 @@
-import "./css/newRecipe.css";
+import styles from "./css/NewRecipe.module.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
-import { Formik, Form, FieldArray, getIn } from "formik";
+import {useEffect, useState} from "react";
+import {useQuery} from "react-query";
+import {useNavigate} from "react-router-dom";
+import {FieldArray, Form, Formik, getIn} from "formik";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import * as yup from "yup";
 import {
-  InputAdornment,
-  ImageList,
-  Button,
-  IconButton,
-  TextField,
-  InputLabel,
-  ImageListItem,
-  Typography,
-  Divider,
-  Container,
   Box,
+  Button,
+  Container,
+  Divider,
+  IconButton,
+  ImageList,
+  ImageListItem,
+  InputAdornment,
+  InputLabel,
+  TextField,
+  Typography,
 } from "@mui/material";
-import { makeStyles } from "@material-ui/styles";
-import { IoMdAdd } from "react-icons/io";
-import { BiMinus } from "react-icons/bi";
-import { HiUpload } from "react-icons/hi";
-import { useAuthToken } from "../hooks/AuthTokenContext";
-import { useNotificationContext } from "../hooks/NotificationContext";
-import { useBackdropContext } from "../hooks/BackdropContext";
+import {makeStyles} from "@material-ui/styles";
+import {IoMdAdd} from "react-icons/io";
+import {BiMinus} from "react-icons/bi";
+import {HiUpload} from "react-icons/hi";
+import {useAuthToken} from "../hooks/AuthTokenContext";
+import {useNotificationContext} from "../hooks/NotificationContext";
+import {useBackdropContext} from "../hooks/BackdropContext";
 import LoadingIcon from "../components/LoadingIcon";
 
 const animatedComponents = makeAnimated();
@@ -68,19 +68,17 @@ interface ICategoryLabel {
 }
 
 const NewRecipe = (): JSX.Element => {
-  const { addNotification } = useNotificationContext();
-  const { addBackdrop, setBackdropOpen } = useBackdropContext();
+  const {addNotification} = useNotificationContext();
+  const {addBackdrop, setBackdropOpen} = useBackdropContext();
 
   const classes = useStyles();
-  const { accessToken } = useAuthToken();
+  const {accessToken} = useAuthToken();
   const navigate = useNavigate();
 
   const [images, setImages] = useState<Blob[]>([]);
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [catLabels, setCatLabels] = useState<ICategoryLabel[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<
-    ICategoryLabel[]
-  >([]);
+  const [selectedCategories, setSelectedCategories] = useState<ICategoryLabel[]>([]);
 
   const {
     data: categories,
@@ -92,7 +90,7 @@ const NewRecipe = (): JSX.Element => {
 
   useEffect(() => {
     const newCatLabels = categories?.map((category) => {
-      return { value: category._id, label: category.name };
+      return {value: category._id, label: category.name};
     });
     if (newCatLabels) {
       setCatLabels(newCatLabels);
@@ -132,7 +130,7 @@ const NewRecipe = (): JSX.Element => {
         }
         return errors;
       }}
-      onSubmit={async (values: any, { setSubmitting }) => {
+      onSubmit={async (values: any, {setSubmitting}) => {
         setSubmitting(true);
         addBackdrop("Uploading New Recipe");
 
@@ -141,7 +139,7 @@ const NewRecipe = (): JSX.Element => {
             values.categories = selectedCategories;
             const newRecipe = await axios
               .post(`${process.env.REACT_APP_API_BASE_URL}/recipes/`, values, {
-                headers: { Authorization: `Bearer ${accessToken}` },
+                headers: {Authorization: `Bearer ${accessToken}`},
               })
               .then((res) => res.data);
 
@@ -153,7 +151,7 @@ const NewRecipe = (): JSX.Element => {
                 `${process.env.REACT_APP_API_BASE_URL}/recipes/${newRecipe.id}/files`,
                 formData,
                 {
-                  headers: { Authorization: `Bearer ${accessToken}` },
+                  headers: {Authorization: `Bearer ${accessToken}`},
                 }
               );
             });
@@ -168,15 +166,15 @@ const NewRecipe = (): JSX.Element => {
       }}
     >
       {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        setFieldValue,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
+          values,
+          errors,
+          touched,
+          handleChange,
+          setFieldValue,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
         <Form noValidate autoComplete="off">
           <Container>
             <Box
@@ -188,32 +186,32 @@ const NewRecipe = (): JSX.Element => {
               }}
             >
               <div
-                className="input-section"
-                style={{ marginTop: 20, marginBottom: 10 }}
+                className={styles['input-section']}
+                style={{marginTop: 20, marginBottom: 10}}
               >
                 <Typography
                   variant="h4"
-                  sx={{ fontSize: 40, marginBottom: "5px" }}
+                  sx={{fontSize: 40, marginBottom: "5px"}}
                 >
                   New Recipe
                 </Typography>
                 <Typography
                   variant="h5"
                   color="#777"
-                  sx={{ fontSize: "1.25rem" }}
+                  sx={{fontSize: "1.25rem"}}
                 >
                   Share your recipe with the community
                 </Typography>
-                <Divider sx={{ marginTop: "12px", marginBottom: "6px" }} />
+                <Divider sx={{marginTop: "12px", marginBottom: "6px"}}/>
               </div>
-              <div className="input-section">
+              <div className={styles['input-section']}>
                 <InputLabel htmlFor="title" className={classes.inputLabel}>
                   Title
                 </InputLabel>
                 <TextField
                   color="success"
-                  InputLabelProps={{ shrink: true }}
-                  sx={{ width: "100%" }}
+                  InputLabelProps={{shrink: true}}
+                  sx={{width: "100%"}}
                   type="text"
                   name="title"
                   size="small"
@@ -230,7 +228,7 @@ const NewRecipe = (): JSX.Element => {
                 />
               </div>
 
-              <div className="input-section">
+              <div className={styles['input-section']}>
                 <InputLabel htmlFor="body" className={classes.inputLabel}>
                   Description
                 </InputLabel>
@@ -239,8 +237,8 @@ const NewRecipe = (): JSX.Element => {
                   multiline
                   rows={4}
                   color="success"
-                  InputLabelProps={{ shrink: true }}
-                  sx={{ width: "100%" }}
+                  InputLabelProps={{shrink: true}}
+                  sx={{width: "100%"}}
                   type="text"
                   name="body"
                   size="small"
@@ -257,7 +255,7 @@ const NewRecipe = (): JSX.Element => {
                 />
               </div>
 
-              <div className="input-section">
+              <div className={styles['input-section']}>
                 <InputLabel
                   htmlFor="cookingTime"
                   className={classes.inputLabel}
@@ -267,8 +265,8 @@ const NewRecipe = (): JSX.Element => {
                 <TextField
                   id="cookingTime"
                   color="success"
-                  InputLabelProps={{ shrink: true }}
-                  sx={{ width: "100%" }}
+                  InputLabelProps={{shrink: true}}
+                  sx={{width: "100%"}}
                   type="number"
                   name="cookingTime"
                   size="small"
@@ -287,7 +285,7 @@ const NewRecipe = (): JSX.Element => {
                 />
               </div>
 
-              <div className="input-section">
+              <div className={styles['input-section']}>
                 <InputLabel className={classes.inputLabel}>
                   Ingredients
                 </InputLabel>
@@ -302,7 +300,7 @@ const NewRecipe = (): JSX.Element => {
                         sx={{
                           marginBottom: "2px",
                         }}
-                        startIcon={<IoMdAdd size={20} />}
+                        startIcon={<IoMdAdd size={20}/>}
                       >
                         Add item
                       </Button>
@@ -315,8 +313,8 @@ const NewRecipe = (): JSX.Element => {
                             <div key={index}>
                               <TextField
                                 color="success"
-                                InputLabelProps={{ shrink: true }}
-                                sx={{ width: "100%" }}
+                                InputLabelProps={{shrink: true}}
+                                sx={{width: "100%"}}
                                 type="text"
                                 name={name}
                                 size="small"
@@ -343,7 +341,7 @@ const NewRecipe = (): JSX.Element => {
                                         onMouseDown={(e) => e.preventDefault()}
                                         edge="end"
                                       >
-                                        <BiMinus />
+                                        <BiMinus/>
                                       </IconButton>
                                     </InputAdornment>
                                   ),
@@ -358,7 +356,7 @@ const NewRecipe = (): JSX.Element => {
                 </FieldArray>
               </div>
 
-              <div className="input-section">
+              <div className={styles['input-section']}>
                 <InputLabel className={classes.inputLabel}>
                   Instructions
                 </InputLabel>
@@ -373,7 +371,7 @@ const NewRecipe = (): JSX.Element => {
                         sx={{
                           marginBottom: "2px",
                         }}
-                        startIcon={<IoMdAdd size={20} />}
+                        startIcon={<IoMdAdd size={20}/>}
                       >
                         Add item
                       </Button>
@@ -386,8 +384,8 @@ const NewRecipe = (): JSX.Element => {
                             <div key={index}>
                               <TextField
                                 color="success"
-                                InputLabelProps={{ shrink: true }}
-                                sx={{ width: "100%" }}
+                                InputLabelProps={{shrink: true}}
+                                sx={{width: "100%"}}
                                 type="text"
                                 name={name}
                                 size="small"
@@ -414,7 +412,7 @@ const NewRecipe = (): JSX.Element => {
                                         onMouseDown={(e) => e.preventDefault()}
                                         edge="end"
                                       >
-                                        <BiMinus />
+                                        <BiMinus/>
                                       </IconButton>
                                     </InputAdornment>
                                   ),
@@ -430,11 +428,11 @@ const NewRecipe = (): JSX.Element => {
               </div>
 
               {error ? (
-                <div>Error: {(error as any).mesasge}</div>
+                <div>Error: {(error as any).message}</div>
               ) : isLoading ? (
-                <LoadingIcon />
+                <LoadingIcon/>
               ) : (
-                <div className="input-section">
+                <div className={styles['input-section']}>
                   <InputLabel className={classes.inputLabel}>Tags</InputLabel>
                   <Select
                     closeMenuOnSelect={false}
@@ -444,11 +442,11 @@ const NewRecipe = (): JSX.Element => {
                     onChange={onLabelChange}
                     aria-label="tags select"
                   />
-                  <br />
+                  <br/>
                 </div>
               )}
 
-              <div className="input-section">
+              <div className={styles['input-section']}>
                 {values.youtubeVideoId.length === 11 && (
                   <iframe
                     width="560"
@@ -467,8 +465,8 @@ const NewRecipe = (): JSX.Element => {
                 <TextField
                   id="youtube-id"
                   color="success"
-                  InputLabelProps={{ shrink: true }}
-                  sx={{ width: "100%" }}
+                  InputLabelProps={{shrink: true}}
+                  sx={{width: "100%"}}
                   type="text"
                   name="youtubeVideoId"
                   size="small"
@@ -489,7 +487,7 @@ const NewRecipe = (): JSX.Element => {
                 />
               </div>
 
-              <div className="input-section">
+              <div className={styles['input-section']}>
                 <InputLabel className={classes.inputLabel}>Images</InputLabel>
                 <label htmlFor="files-upload">
                   <Button
@@ -500,7 +498,7 @@ const NewRecipe = (): JSX.Element => {
                     sx={{
                       marginBottom: "2px",
                     }}
-                    startIcon={<HiUpload size={20} />}
+                    startIcon={<HiUpload size={20}/>}
                   >
                     Add Images
                   </Button>
@@ -511,12 +509,12 @@ const NewRecipe = (): JSX.Element => {
                   multiple
                   accept="image/png, image/jpeg"
                   onChange={onImageChange}
-                  style={{ display: "none" }}
+                  style={{display: "none"}}
                 />
                 {images.length === 0 && (
                   <Typography
                     variant="body1"
-                    sx={{ color: "#d32f2f", fontSize: "0.75rem", ml: "5px" }}
+                    sx={{color: "#d32f2f", fontSize: "0.75rem", ml: "5px"}}
                   >
                     {(errors as any).images}
                   </Typography>
@@ -544,7 +542,7 @@ const NewRecipe = (): JSX.Element => {
                 disabled={isSubmitting}
                 type="submit"
                 onMouseDown={(e) => e.preventDefault()}
-                sx={{ margin: "5vh" }}
+                sx={{margin: "5vh"}}
               >
                 Submit
               </Button>
