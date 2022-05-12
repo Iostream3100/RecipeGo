@@ -55,7 +55,7 @@ const ReviewCard = ({
                   <Avatar src={defaultPicture} />
                 )}
               </div>
-              <div className="mt-2 ml-2 ">
+              <div className="mt-2 ml-2">
                 <p style={{ fontSize: 19 }} className="text-black no-underline">
                   {review.author.name}
                 </p>

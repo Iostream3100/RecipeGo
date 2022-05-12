@@ -1,4 +1,4 @@
-import "../css/recipeCard.css";
+import styles from "./RecipeCard.module.css";
 import { Link } from "react-router-dom";
 import { Rating } from "@mui/material";
 import { BsThreeDots } from "react-icons/bs";
@@ -32,7 +32,7 @@ const RecipeRow = ({ recipe }: Props): JSX.Element => (
         <BsThreeDots className="mr-2 ml-auto" />
 
         <div
-          className="recipe-category mt-2 recipe-category flex "
+          className={`${styles["recipe-category"]} mt-2 flex`}
           style={{ color: "#03897B" }}
         >
           {recipe.categories &&
@@ -45,12 +45,14 @@ const RecipeRow = ({ recipe }: Props): JSX.Element => (
               </div>
             ))}
         </div>
-        <div className="recipe-title font-serif text-xl font-semibold pb-1">
+        <div
+          className={`${styles["recipe-title"]} font-serif text-xl font-semibold pb-1`}
+        >
           {recipe.title}
         </div>
         <div
           style={{ fontSize: 18, fontWeight: 400 }}
-          className="recipe-title font-serif text-xl font-semibold pb-1"
+          className={`${styles["recipe-title"]} font-serif text-xl font-semibold pb-1`}
         >
           {recipe.body}
         </div>

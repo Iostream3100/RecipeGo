@@ -1,4 +1,3 @@
-import "./css/userNavbarDropdown.css";
 import { useState, MouseEvent } from "react";
 import { To, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";

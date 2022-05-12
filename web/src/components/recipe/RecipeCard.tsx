@@ -1,7 +1,6 @@
-import "../css/recipeCard.css";
+import styles from "./RecipeCard.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, Rating } from "@mui/material";
-
 import ImageCard from "./ImageCard";
 
 type Props = { recipe: IRecipe };
@@ -32,7 +31,10 @@ const RecipeCard = ({ recipe }: Props): JSX.Element => {
         )}
 
         <div className="p-2">
-          <div className="recipe-category flex" style={{ color: "#03897B" }}>
+          <div
+            className={`${styles["recipe-category"]} flex`}
+            style={{ color: "#03897B" }}
+          >
             {recipe.categories &&
               recipe.categories.map((category: any) => (
                 <div
@@ -43,7 +45,9 @@ const RecipeCard = ({ recipe }: Props): JSX.Element => {
                 </div>
               ))}
           </div>
-          <div className="recipe-title font-serif text-xl font-semibold pb-1">
+          <div
+            className={`${styles[" recipe-title"]} font-serif text-xl font-semibold pb-1`}
+          >
             {recipe.title}
           </div>
 
