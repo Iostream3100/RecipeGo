@@ -3,6 +3,7 @@
 
 ## Group Member: Yun Feng, Jiaxue Li, Ziming Jia
 🥖Check out here： https://recipego.vercel.app/
+Technologies we use: https://docs.google.com/presentation/d/1PT2sBKSX3V1nhPXvt9KHZds9aiIX_LvLPHSkAIFOkvk/edit?usp=sharing
 
 ## Tech Stack
 Front End: React, TypeScript, React Query, Tailwind CSS, MUI Components
