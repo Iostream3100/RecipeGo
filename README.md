@@ -1,7 +1,7 @@
 
 # Recipe Website
 
-## Group Member: Yun Feng, Jiaxue Li, Ziming Jia
+## Group Member: Yun Feng, Qiqi Zang Jiaxue Li, Ziming Jia
 🥖Check out here： https://recipego.vercel.app/
 
 Technologies we use: https://docs.google.com/presentation/d/1PT2sBKSX3V1nhPXvt9KHZds9aiIX_LvLPHSkAIFOkvk/edit?usp=sharing
